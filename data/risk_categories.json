@@ -1,0 +1,6 @@
+{
+    "low": "Monitor routinely.",
+    "moderate": "Check in with the patient.",
+    "high": "Immediate intervention required.",
+    "critical": "Emergency response needed."
+}
