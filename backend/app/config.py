@@ -1,7 +1,10 @@
+import os
 from pydantic_settings import BaseSettings
 
+_DEFAULT_DB = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../novaflow.db")).replace("\\", "/")
+
 class Settings(BaseSettings):
-    DATABASE_URL: str = "sqlite:///./novaflow.db"
+    DATABASE_URL: str = f"sqlite:///{_DEFAULT_DB}"
     SECRET_KEY: str = "09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7"
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 1440

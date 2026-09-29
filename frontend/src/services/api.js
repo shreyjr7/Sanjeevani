@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { mockCases, mockCheckIns, mockAlerts, mockInterventions, mockTrendData } from '../data/mockData';
 
-const API_HOST = typeof window !== 'undefined' && window.location.hostname === 'localhost' ? 'localhost' : '127.0.0.1';
+const isLocalhost = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
 const API_BASE_URL = import.meta.env?.VITE_API_URL 
   ? `${import.meta.env.VITE_API_URL.replace(/\/+$/, '')}/api` 
-  : `http://${API_HOST}:8000/api`;
+  : (isLocalhost ? 'http://127.0.0.1:8000/api' : '/api');
 
 const api = axios.create({
   baseURL: API_BASE_URL,
